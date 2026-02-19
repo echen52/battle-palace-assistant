@@ -99,7 +99,7 @@ pokemon-sprites.js  — Dex number lookup + sprite URL helper
 
 ## Data Sources
 
-- Battle Palace Bulbapedia [site](https://bulbapedia.bulbagarden.net/wiki/Battle_Palace) for move listings by class
+- Move listings by class from [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Battle_Palace)
 - Sprites from [PokéAPI](https://pokeapi.co/)
 - National Dex number mapping adapted from [Battle Facilities Assistant](https://github.com/)
 
