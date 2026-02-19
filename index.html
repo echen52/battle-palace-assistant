@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle Palace Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="header">
+  <h1>Battle Palace Assistant</h1>
+  <button class="btn danger" id="resetBtn">Reset</button>
+</div>
+
+<main>
+
+  <!-- ── Pokémon Search ── -->
+  <div class="search-wrap">
+    <label class="search-label" for="search">Search Pokémon</label>
+    <input id="search" type="text" autocomplete="off"
+           placeholder="e.g. Latios 8, Snorlax, or your saved sets…" />
+    <div id="ac" class="ac-list"></div>
+  </div>
+  <div id="result"></div>
+
+  <hr class="section-divider">
+
+  <!-- ── Custom Set Calculator ── -->
+  <div class="custom-panel">
+    <div class="custom-panel-header" id="customToggle">
+      <span class="custom-panel-title">Custom Set Calculator</span>
+      <span style="display:flex;align-items:center;gap:12px;">
+        <span class="custom-panel-hint">Paste Smogon format or enter manually</span>
+        <span class="chevron" id="customChevron">▼</span>
+      </span>
+    </div>
+
+    <div class="custom-panel-body" id="customBody">
+
+      <!-- Smogon paste -->
+      <div class="smogon-section">
+        <label class="smogon-label">Paste Smogon Export</label>
+        <textarea class="smogon-input" id="smogonInput" placeholder="Snorlax @ Leftovers
+Ability: Immunity
+Level: 50
+EVs: 36 HP / 220 Def / 252 Spe
+Brave Nature
+- Body Slam
+- Amnesia
+- Curse
+- Rest"></textarea>
+        <div class="btn-row">
+          <button class="calc-btn" id="parseSmogon">Parse Set</button>
+        </div>
+        <div class="parse-error" id="parseError"></div>
+      </div>
+
+      <div class="smogon-or">or enter manually</div>
+
+      <!-- Manual form -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Species</label>
+          <input class="form-input" id="f-species" type="text" placeholder="e.g. Snorlax" />
+        </div>
+        <div class="form-group">
+          <label>Nature</label>
+          <select class="form-select" id="f-nature">
+            <option value="">-- Select Nature --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Item</label>
+          <input class="form-input" id="f-item" type="text" placeholder="e.g. Leftovers" />
+        </div>
+        <div class="form-group">
+          <label>Speed EVs</label>
+          <input class="form-input" id="f-spdev" type="number" min="0" max="252"
+                 placeholder="0–252 (default 0)" />
+        </div>
+      </div>
+
+      <!-- Move inputs -->
+      <div class="moves-row">
+        <div class="move-input-wrap">
+          <label>Move 1</label>
+          <input class="form-input" id="f-move1" type="text" autocomplete="off" placeholder="e.g. Body Slam" />
+          <div class="move-ac" id="ac-move1"></div>
+        </div>
+        <div class="move-input-wrap">
+          <label>Move 2</label>
+          <input class="form-input" id="f-move2" type="text" autocomplete="off" placeholder="e.g. Amnesia" />
+          <div class="move-ac" id="ac-move2"></div>
+        </div>
+        <div class="move-input-wrap">
+          <label>Move 3</label>
+          <input class="form-input" id="f-move3" type="text" autocomplete="off" placeholder="e.g. Curse" />
+          <div class="move-ac" id="ac-move3"></div>
+        </div>
+        <div class="move-input-wrap">
+          <label>Move 4</label>
+          <input class="form-input" id="f-move4" type="text" autocomplete="off" placeholder="e.g. Rest" />
+          <div class="move-ac" id="ac-move4"></div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="calc-btn" id="calcCustom">Calculate Probabilities</button>
+        <button class="btn"      id="saveSet">Save Set</button>
+      </div>
+      <div class="parse-error" id="calcError"></div>
+
+      <div id="customResult" class="custom-result"></div>
+
+      <!-- Saved sets -->
+      <div class="saved-section">
+        <div class="saved-title">Saved Sets</div>
+        <div class="saved-list" id="savedList"></div>
+      </div>
+
+    </div><!-- /customBody -->
+  </div><!-- /custom-panel -->
+
+</main>
+
+<!--
+  Script load order matters — data must be available before logic,
+  and logic before app UI code.
+-->
+<script src="pokemon-data.js"></script>
+<script src="pokemon-sprites.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
