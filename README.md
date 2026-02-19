@@ -48,7 +48,7 @@ Every move is classified as ATK, DEF, or SPT. A simplified breakdown:
 
 If a Pokémon has no moves in a category, its AI probability for that category is 0 and the missing weight is redistributed into the random move and no-move probabilities.
 
-More details [here](https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-74#post-10307310)
+More details [here](https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-74#post-10307310).
 
 ---
 
@@ -99,7 +99,7 @@ pokemon-sprites.js  — Dex number lookup + sprite URL helper
 
 ## Data Sources
 
-- Battle Palace Bulbapedia site for move listings by class
+- Battle Palace Bulbapedia [site](https://bulbapedia.bulbagarden.net/wiki/Battle_Palace) for move listings by class
 - Sprites from [PokéAPI](https://pokeapi.co/)
 - National Dex number mapping adapted from [Battle Facilities Assistant](https://github.com/)
 
